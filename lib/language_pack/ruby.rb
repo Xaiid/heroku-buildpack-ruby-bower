@@ -102,6 +102,7 @@ class LanguagePack::Ruby < LanguagePack::Base
         install_node
         install_bower
         build_bower
+        run_migrations
         run_assets_precompile_rake_task
       end
       super
@@ -109,7 +110,10 @@ class LanguagePack::Ruby < LanguagePack::Base
   end
 
 private
-
+   
+  def run_migrations
+    puts "runing migrations"
+  end
   # the base PATH environment variable to be used
   # @return [String] the resulting PATH
   def default_path

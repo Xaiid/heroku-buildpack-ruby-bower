@@ -114,8 +114,9 @@ private
   def run_migrations
     puts "Running: rake db:migrate"
     require 'benchmark'
-    time = Benchmark.realtime { pipe("bundle exec rake db:migrate 2>&1") }
+    time = Benchmark.realtime { pipe("rake db:migrate") }
   end
+  
   # the base PATH environment variable to be used
   # @return [String] the resulting PATH
   def default_path

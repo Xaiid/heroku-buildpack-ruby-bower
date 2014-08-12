@@ -112,7 +112,9 @@ class LanguagePack::Ruby < LanguagePack::Base
 private
    
   def run_migrations
-    puts "runing migrations"
+    puts "Running: rake db:migrate"
+    require 'benchmark'
+    time = Benchmark.realtime { pipe("env PATH=$PATH:bin bundle exec rake db:migrate 2>&1") }
   end
   # the base PATH environment variable to be used
   # @return [String] the resulting PATH
